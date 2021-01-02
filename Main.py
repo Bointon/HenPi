@@ -43,24 +43,24 @@ else:
 image = Image.new("RGB", (width, height))
 
 #Standard runtime initialisation
-splashFlag = true
+splashFlag = True
 splashTimer = 500
 splashTimerCnt = 0
-menuFlag = false
+menuFlag = False
 
 #Standard runtime
 
 while True:
     
-    if splashFlag == true:
+    if splashFlag == True:
         #The splash screen 
         splashScreen()
         if splashTimer < splashTimerCnt:
-            splashFlag = false
+            splashFlag = False
         splashTimerCnt += 1
-    if menuFlag == true:
+    if menuFlag == True:
         #The menu screen
-        menuFlag = false
+        menuFlag = False
     #cycle timer
     time.sleep(0.1)
 
