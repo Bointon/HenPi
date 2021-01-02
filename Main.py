@@ -78,7 +78,7 @@ def splashScreen():
 
 
 #Main screen
-def mainScreen(image):
+def mainScreen():
 
     image = Image.new("RGB", (disp.width, disp.height))
     
