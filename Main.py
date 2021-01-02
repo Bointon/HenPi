@@ -50,7 +50,7 @@ def runTime():
     
     #Standard runtime initialisation
     splashFlag = True
-    splashTimer = 500
+    splashTimer = 5000
     splashTimerCnt = 0
     menuFlag = False
     mainScreenFlag = False
