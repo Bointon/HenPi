@@ -49,21 +49,20 @@ splashTimerCnt = 0
 menuFlag = False
 
 #Standard runtime
-
-while True:
+def runTime():
+    while True:
     
-    if splashFlag == True:
-        #The splash screen 
-        splashScreen()
-        if splashTimer < splashTimerCnt:
-            splashFlag = False
+        if splashFlag == True:
+            #The splash screen 
+            splashScreen()
+            if splashTimer < splashTimerCnt:
+                splashFlag = False
         splashTimerCnt += 1
-    if menuFlag == True:
-        #The menu screen
-        menuFlag = False
-    #cycle timer
-    time.sleep(0.1)
-
+        if menuFlag == True:
+            #The menu screen
+            menuFlag = False
+        #cycle timer
+        time.sleep(0.1)
 
 #Splash screen logo
 def splashScreen():
@@ -89,3 +88,4 @@ def splashScreen():
     # Display image.
     disp.image(image)
 
+runTime()
