@@ -67,7 +67,7 @@ def runTime():
 def splashScreen():
     
     image = Image.open("logo.png")
-    disp.fill()
+    #disp.fill()
 
     #Rotated image correction
     width, height = disp.height, disp.width
@@ -80,12 +80,12 @@ def splashScreen():
     
     
     # Display image
-    image = image.crop((x, y, x + width, y + height))
+    image = image.crop((x, y, x - width, y - height))
     disp.image(image)
 
 #Main screen
 def mainScreen():
-    disp.fill()
+    #disp.fill()
     exit()
 #Start the runtime
 runTime()
