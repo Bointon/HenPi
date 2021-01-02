@@ -135,7 +135,7 @@ def readEncoder():
                     counter -= 1
                 print(counter)
             clkLastState = clkState
-            sleep(0.01)
+            time.sleep(0.01)
     finally:
         GPIO.cleanup()
     
