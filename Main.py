@@ -81,7 +81,7 @@ def splashScreen():
     print(x,y)
     
     # Display image.
-    disp.image(image, 90)
+    disp.image(image, 0, 5, 5)
 
 #Main screen
 def mainScreen():
