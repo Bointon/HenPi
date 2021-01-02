@@ -33,10 +33,6 @@ disp = ili9341.ILI9341(
     baudrate=BAUDRATE,
 )
 
-
-image = Image.new("RGB", (width, height))
-
-
 #Standard runtime
 def runTime():
     
