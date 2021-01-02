@@ -101,6 +101,7 @@ def mainScreen():
     # Draw a black filled box to clear the image.
     draw.rectangle((0, 0, width, height), outline=0, fill=(0, 0, 0))
     disp.image(image)
-
+    #close program once the main has run once
+    exit()
 #Start the runtime
 runTime()
