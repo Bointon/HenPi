@@ -44,8 +44,6 @@ def runTime():
     mainScreenFlag = False
     connectionScreenFlag = False
 
-    image = Image.new("RGB", (disp.width, disp.height))
-
     while True:
     
         if splashFlag == True:
@@ -63,7 +61,7 @@ def runTime():
             
         if mainScreenFlag == True:
             #The main display
-            mainScreen(image)
+            mainScreen()
             
         #cycle timer
         
@@ -80,7 +78,9 @@ def splashScreen():
 
 
 #Main screen
-def mainScreen():
+def mainScreen(image):
+
+    image = Image.new("RGB", (disp.width, disp.height))
     
     draw = ImageDraw.Draw(image)
     draw.rectangle((0, 0, width, height), outline=0, fill=(255, 255, 255))
