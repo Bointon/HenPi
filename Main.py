@@ -81,16 +81,11 @@ def splashScreen():
     print(x,y)
     
     # Display image.
-    disp.image(image)
+    disp.image(image, 90)
 
 #Main screen
 def mainScreen():
-    draw = ImageDraw.Draw(image)
-
-    # Draw a black filled box to clear the image.
-    draw.rectangle((0, 0, disp.width, disp.height), outline=0, fill=(0, 0, 0))
-    disp.image(image)
-    #close program once the main has run once
+    disp.fill()
     exit()
 #Start the runtime
 runTime()
