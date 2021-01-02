@@ -38,7 +38,7 @@ def runTime():
     
     #Standard runtime initialisation
     splashFlag = True
-    splashTimer = 5
+    splashTimer = 50
     splashTimerCnt = 0
     menuFlag = False
     mainScreenFlag = False
@@ -61,31 +61,20 @@ def runTime():
             mainScreen()
             print("Main")
         #cycle timer
-        time.sleep(1)
+        time.sleep(0.1)
 
 #Splash screen logo
 def splashScreen():
-    
+
+    #image should be in the 320x240 px format
     image = Image.open("logo.png")
-    #disp.fill()
-
-    #Rotated image correction
-    width, height = disp.height, disp.width
-    
-    # Crop and center the image
-    x = ((width - image.width) // 2) 
-    y = ((height - image.height) // 2) 
-
-    print(x,y,x+width,y+height)
-    
-    
+   
     # Display image
-    #image = image.crop((x, y, x + width, y + height))
     disp.image(image)
 
 #Main screen
 def mainScreen():
-    #disp.fill()
+    disp.fill()
     exit()
 #Start the runtime
 runTime()
