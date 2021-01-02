@@ -94,10 +94,10 @@ def mainScreen():
     draw.text(((disp.height-font.getsize(titleText)[0])/2, 4), titleText , font=font, fill="#FFFFFF")
 
     if connectedFlag == True:
-        draw.text((Padding, 4+36), "Material:" , font=font, fill=0)
-        draw.text((Padding, 4+2*36), "Thickness:" , font=font, fill=0)
-        draw.text((Padding, 4+3*36), "Rate:" , font=font, fill=0)
-        draw.text((Padding, 4+4*36), "Xtal:" , font=font, fill=0)
+        draw.text((padding, 4+36), "Material:" , font=font, fill=0)
+        draw.text((padding, 4+2*36), "Thickness:" , font=font, fill=0)
+        draw.text((padding, 4+3*36), "Rate:" , font=font, fill=0)
+        draw.text((padding, 4+4*36), "Xtal:" , font=font, fill=0)
         
     disp.image(image)
 
