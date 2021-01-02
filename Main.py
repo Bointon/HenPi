@@ -34,6 +34,8 @@ disp = ili9341.ILI9341(
     baudrate=BAUDRATE,
 )
 
+font = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf", 24)
+
 #Encoder
 from RPi import GPIO
 clk_pin = 17
@@ -50,7 +52,7 @@ def runTime():
     
     #Standard runtime initialisation
     splashFlag = True
-    splashTimer = 5000
+    splashTimer = 50
     splashTimerCnt = 0
     menuFlag = False
     mainScreenFlag = False
@@ -98,8 +100,8 @@ def mainScreen():
     #draw the backgorund of the main menu
     padding = 2
     connectedFlag = True
-    font = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf", 24)
-    titleText = "Crystal Monitor"
+    
+    titleText = "Material: Aluminium"
     image = Image.new("RGB", (disp.height, disp.width))
     draw = ImageDraw.Draw(image)
     draw.rectangle((0, 0, disp.height, disp.width), outline=0, fill=(255,255,255))
