@@ -80,7 +80,7 @@ def splashScreen():
     
     
     # Display image
-    image = image.crop((x, y, x - width, y - height))
+    image = image.crop((x, y, x + width, y + height))
     disp.image(image)
 
 #Main screen
