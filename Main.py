@@ -84,14 +84,14 @@ def splashScreen():
 def mainScreen():
     #draw the backgorund of the main menu
     font = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf", 24)
-    titleText = "Xtal Monitor"
+    titleText = "Crystal Monitor"
     image = Image.new("RGB", (disp.height, disp.width))
     draw = ImageDraw.Draw(image)
     draw.rectangle((0, 0, disp.height, disp.width), outline=0, fill=(255,255,255))
     draw.rectangle((0, 0, disp.height-1, 36), outline=(255,255,255), fill=(100,100,100))
     draw.text(((disp.height-font.getsize(titleText)[0])/2, 4), titleText , font=font, fill="#FFFFFF")
     disp.image(image)
-    print(font.getsize(titleText)[0])
+
 
 #Start the runtime
 runTime()
