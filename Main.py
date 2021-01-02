@@ -69,7 +69,6 @@ def runTime():
                 splashFlag = False
                 mainScreenFlag = True
             TimerCnt += 1
-
             
         if menuFlag == True:
             #The menu screen
@@ -80,8 +79,7 @@ def runTime():
             if (TimerCnt % 100) == 0:
                 mainScreen()
             TimerCnt += 1
-            
-           
+                     
             
         #cycle timer
         if TimerCnt > 10000:
@@ -106,7 +104,6 @@ def mainScreen():
     padding = 2
     connectedFlag = True
 
-    if
     titleText = "Material: Aluminium"
     draw = ImageDraw.Draw(image)
     draw.rectangle((0, 0, disp.height, disp.width), outline=0, fill=(255,255,255))
