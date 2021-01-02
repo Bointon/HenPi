@@ -76,9 +76,8 @@ def splashScreen():
     x = ((width - image.width) // 2) 
     y = ((height - image.height) // 2) 
 
-    print(width,height)
-    print(image.width, image.height)
-    print(x,y)
+    print(x,y,x+width,y+height)
+    
     
     # Display image
     image = image.crop((x, y, x + width, y + height))
