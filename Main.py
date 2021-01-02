@@ -61,7 +61,6 @@ while True:
     if menuFlag == true:
         #The menu screen
         menuFlag = false
-
     #cycle timer
     time.sleep(0.1)
 
