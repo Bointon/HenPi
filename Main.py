@@ -86,7 +86,7 @@ def mainScreen():
     image = Image.new("RGB", (disp.height, disp.width))
     draw = ImageDraw.Draw(image)
     draw.rectangle((0, 0, disp.height, disp.width), outline=0, fill=(255,255,255))
-    draw.rectangle((0, 0, 10, disp.width, outline=0, fill=0))
+    draw.rectangle((0, 0, 10, disp.width), outline=0, fill=0)
     disp.image(image)
 
 
