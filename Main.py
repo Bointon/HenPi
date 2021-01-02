@@ -35,6 +35,8 @@ disp = ili9341.ILI9341(
 )
 
 font = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf", 24)
+image = Image.new("RGB", (disp.height, disp.width))
+    
 
 #Encoder
 from RPi import GPIO
@@ -89,10 +91,10 @@ def splashScreen(splashTimerCnt):
 
     if splashTimerCnt == 0:
         #image should be in the 320x240 px format
-        image = Image.open("logo.png")
+        logo = Image.open("logo.png")
     
         # Display image
-        disp.image(image)
+        disp.image(logo)
 
 
 #Main screen
@@ -102,7 +104,6 @@ def mainScreen():
     connectedFlag = True
     
     titleText = "Material: Aluminium"
-    image = Image.new("RGB", (disp.height, disp.width))
     draw = ImageDraw.Draw(image)
     draw.rectangle((0, 0, disp.height, disp.width), outline=0, fill=(255,255,255))
     draw.rectangle((0, 0, disp.height-1, 36), outline=(255,255,255), fill=(100,100,100))
