@@ -60,7 +60,7 @@ def runTime():
     
         if splashFlag == True:
             #The splash screen 
-            splashScreen()
+            splashScreen(splashTimerCnt)
             if splashTimer < splashTimerCnt:
                 splashFlag = False
                 mainScreenFlag = True
@@ -85,11 +85,12 @@ def runTime():
 #Splash screen logo
 def splashScreen():
 
-    #image should be in the 320x240 px format
-    image = Image.open("logo.png")
+    if splashTimerCnt == 0:
+        #image should be in the 320x240 px format
+        image = Image.open("logo.png")
     
-    # Display image
-    disp.image(image)
+        # Display image
+        disp.image(image)
 
 
 #Main screen
