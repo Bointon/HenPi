@@ -42,14 +42,16 @@ else:
 
 image = Image.new("RGB", (width, height))
 
-#Standard runtime initialisation
-splashFlag = True
-splashTimer = 500
-splashTimerCnt = 0
-menuFlag = False
 
 #Standard runtime
 def runTime():
+    
+    #Standard runtime initialisation
+    splashFlag = True
+    splashTimer = 500
+    splashTimerCnt = 0
+    menuFlag = False
+
     while True:
     
         if splashFlag == True:
