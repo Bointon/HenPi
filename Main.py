@@ -121,13 +121,13 @@ def mainScreen():
 def readEncoder():
 
     counter = 0
-    clkLastState = GPIO.input(clk)
+    clkLastState = GPIO.input(clk_pin)
 
     try:
 
         while True:
-            clkState = GPIO.input(clk)
-            dtState = GPIO.input(dt)
+            clkState = GPIO.input(clk_pin)
+            dtState = GPIO.input(dt_pin)
             if clkState != clkLastState:
                 if dtState != clkState:
                     counter += 1
