@@ -91,7 +91,7 @@ def runTime():
                 else:
                     enc_counter -= 1
                 print(enc_counter)
-                clkLastState = clkState
+            clkLastState = clkState
                 
         finally:
             GPIO.cleanup()
