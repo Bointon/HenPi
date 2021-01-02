@@ -16,16 +16,6 @@ import board
 from PIL import Image, ImageDraw, ImageFont
 import adafruit_rgb_display.ili9341 as ili9341
 
-#Encoder
-clk_pin = 17
-dt_pin = 18
-GPIO.setmode(GPIO.BCM)
-GPIO.setup(clk_pin, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
-GPIO.setup(dt_pin, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
-
-counter = 0
-clkLastState = GPIO.input(clk_pin)
-
 #Initialise the LCD screen
 cs_pin = digitalio.DigitalInOut(board.CE0)
 dc_pin = digitalio.DigitalInOut(board.D25)
@@ -43,6 +33,17 @@ disp = ili9341.ILI9341(
     rst=reset_pin,
     baudrate=BAUDRATE,
 )
+
+#Encoder
+from RPi import GPIO
+clk_pin = 17
+dt_pin = 18
+GPIO.setmode(GPIO.BCM)
+GPIO.setup(clk_pin, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
+GPIO.setup(dt_pin, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
+
+counter = 0
+clkLastState = GPIO.input(clk_pin)
 
 #Standard runtime
 def runTime():
