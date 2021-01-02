@@ -78,23 +78,8 @@ def runTime():
             #The main display
             if (TimerCnt % 100) == 0:
                 mainScreen()
+                readEncoder()
             TimerCnt += 1
-                     
-
-        #encoder input
-        try:
-            clkState = GPIO.input(clk_pin)
-            dtState = GPIO.input(dt_pin)
-            if clkState != clkLastState:
-                if dtState != clkState:
-                    enc_counter += 1
-                else:
-                    enc_counter -= 1
-                print(enc_counter)
-            clkLastState = clkState
-                
-        finally:
-            GPIO.cleanup()
             
         #cycle timer
         if TimerCnt > 1000:
@@ -133,6 +118,27 @@ def mainScreen():
         
     disp.image(image)
 
+def readEncoder():
+
+    counter = 0
+    clkLastState = GPIO.input(clk)
+
+    try:
+
+        while True:
+            clkState = GPIO.input(clk)
+            dtState = GPIO.input(dt)
+            if clkState != clkLastState:
+                if dtState != clkState:
+                    counter += 1
+                else:
+                    counter -= 1
+                print counter
+            clkLastState = clkState
+            sleep(0.01)
+    finally:
+        GPIO.cleanup()
+    
 
 #Start the runtime
 runTime()
