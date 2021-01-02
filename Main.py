@@ -91,7 +91,7 @@ def mainScreen():
     draw.rectangle((0, 0, disp.height-1, 36), outline=(255,255,255), fill=(100,100,100))
     draw.text((font.getsize(titleText)[0], 4), titleText , font=font, fill="#FFFFFF")
     disp.image(image)
-    print((font.getsize(titleText)[0])
+    print(font.getsize(titleText)[0])
 
 #Start the runtime
 runTime()
