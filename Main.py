@@ -48,7 +48,7 @@ def runTime():
     
     #Standard runtime initialisation
     splashFlag = True
-    splashTimer = 500
+    splashTimer = 5
     splashTimerCnt = 0
     menuFlag = False
     mainScreenFlag = False
@@ -62,35 +62,26 @@ def runTime():
                 splashFlag = False
                 mainScreenFlag = True
             splashTimerCnt += 1
+            print("Splash")
         if menuFlag == True:
             #The menu screen
             menuFlag = False
         if mainScreenFlag == True:
             #The main display
             mainScreen()
+            print("Main")
         #cycle timer
-        time.sleep(0.1)
+        time.sleep(1)
 
 #Splash screen logo
 def splashScreen():
     
     image = Image.open("logo.png")
 
-    # Scale the image to the smaller screen dimension
-    image_ratio = image.width / image.height
-    screen_ratio = width / height
-    if screen_ratio < image_ratio:
-        scaled_width = image.width * height // image.height
-        scaled_height = height
-    else:
-        scaled_width = width
-        scaled_height = image.height * width // image.width
-    image = image.resize((scaled_width, scaled_height), Image.BICUBIC)
-
     # Crop and center the image
-    x = scaled_width // 2 - width // 2
-    y = scaled_height // 2 - height // 2
-    image = image.crop((x, y, x + width, y + height))
+    x = (disp.width - image.width) // 2
+    y = (disp.height - image.height) // 2
+    image = image.crop((x, y, x + image.width, y + image.height))
 
     # Display image.
     disp.image(image)
@@ -100,7 +91,7 @@ def mainScreen():
     draw = ImageDraw.Draw(image)
 
     # Draw a black filled box to clear the image.
-    draw.rectangle((0, 0, width, height), outline=0, fill=(0, 0, 0))
+    draw.rectangle((0, 0, disp.width, disp.height), outline=0, fill=(0, 0, 0))
     disp.image(image)
     #close program once the main has run once
     exit()
