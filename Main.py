@@ -33,12 +33,6 @@ disp = ili9341.ILI9341(
     baudrate=BAUDRATE,
 )
 
-if disp.rotation % 180 == 90:
-    height = disp.width  # we swap height/width to rotate it to landscape!
-    width = disp.height
-else:
-    width = disp.width  # we swap height/width to rotate it to landscape!
-    height = disp.height
 
 image = Image.new("RGB", (width, height))
 
@@ -77,14 +71,13 @@ def runTime():
 def splashScreen():
     
     image = Image.open("logo.png")
-
+    disp.fill()
     # Crop and center the image
     x = (disp.width - image.width) // 2
     y = (disp.height - image.height) // 2
-    image = image.crop((x, y, x + image.width, y + image.height))
-
+    
     # Display image.
-    disp.image(image)
+    disp.image(image, 0, x, y)
 
 #Main screen
 def mainScreen():
