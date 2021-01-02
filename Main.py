@@ -89,7 +89,7 @@ def mainScreen():
     draw = ImageDraw.Draw(image)
     draw.rectangle((0, 0, disp.height, disp.width), outline=0, fill=(255,255,255))
     draw.rectangle((0, 0, disp.height-1, 36), outline=(255,255,255), fill=(100,100,100))
-    draw.text((font.getsize(titleText)[0], 4), titleText , font=font, fill="#FFFFFF")
+    draw.text((disp.height-(font.getsize(titleText)[0])/2, 4), titleText , font=font, fill="#FFFFFF")
     disp.image(image)
     print(font.getsize(titleText)[0])
 
