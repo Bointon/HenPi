@@ -83,20 +83,18 @@ def runTime():
 
         #encoder input
         try:
-
-        while True:
-                clkState = GPIO.input(clk_pin)
-                dtState = GPIO.input(dt_pin)
-                if clkState != clkLastState:
-                        if dtState != clkState:
-                                enc_counter += 1
-                        else:
-                                enc_counter -= 1
-                        print enc_counter
+            clkState = GPIO.input(clk_pin)
+            dtState = GPIO.input(dt_pin)
+            if clkState != clkLastState:
+                if dtState != clkState:
+                    enc_counter += 1
+                else:
+                    enc_counter -= 1
+                print enc_counter
                 clkLastState = clkState
-                sleep(0.01)
-finally:
-        GPIO.cleanup()
+                
+        finally:
+            GPIO.cleanup()
             
         #cycle timer
         if TimerCnt > 1000:
