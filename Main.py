@@ -81,7 +81,7 @@ def splashScreen():
     disp.image(image)
 
 #Connection screen
-def connectionScreen()
+def connectionScreen():
     disp.fill(255)
     exit()
 
