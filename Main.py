@@ -44,6 +44,8 @@ def runTime():
     mainScreenFlag = False
     connectionScreenFlag = False
 
+    image = Image.new("RGB", (disp.width, disp.height))
+
     while True:
     
         if splashFlag == True:
@@ -51,13 +53,9 @@ def runTime():
             splashScreen()
             if splashTimer < splashTimerCnt:
                 splashFlag = False
-                connectionScreenFlag = True
+                mainScreenFlag = True
             splashTimerCnt += 1
 
-        if connectionScreenFlag == True:
-            #The connection screen
-            connectionScreen()
-            connectionScreenFlag = False
             
         if menuFlag == True:
             #The menu screen
@@ -65,10 +63,10 @@ def runTime():
             
         if mainScreenFlag == True:
             #The main display
-            mainScreen()
-            print("Main")
+            mainScreen(image)
             
         #cycle timer
+        
         time.sleep(0.1)
 
 #Splash screen logo
@@ -80,17 +78,14 @@ def splashScreen():
     # Display image
     disp.image(image)
 
-#Connection screen
-def connectionScreen():
+
+#Main screen
+def mainScreen():
+    
     draw = ImageDraw.Draw(image)
     draw.rectangle((0, 0, width, height), outline=0, fill=(255, 255, 255))
 
     disp.image(image)
-    exit()
-
-#Main screen
-def mainScreen():
-    disp.fill()
     exit()
 #Start the runtime
 runTime()
