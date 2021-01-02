@@ -42,6 +42,7 @@ def runTime():
     splashTimerCnt = 0
     menuFlag = False
     mainScreenFlag = False
+    connectionScreenFlag = False
 
     while True:
     
@@ -50,15 +51,23 @@ def runTime():
             splashScreen()
             if splashTimer < splashTimerCnt:
                 splashFlag = False
-                mainScreenFlag = True
+                connectionScreenFlag = True
             splashTimerCnt += 1
+
+        if connectionScreenFlag == True:
+            #The connection screen
+            connectionScreen()
+            connectionScreenFlag = False
+            
         if menuFlag == True:
             #The menu screen
             menuFlag = False
+            
         if mainScreenFlag == True:
             #The main display
             mainScreen()
             print("Main")
+            
         #cycle timer
         time.sleep(0.1)
 
@@ -70,6 +79,11 @@ def splashScreen():
    
     # Display image
     disp.image(image)
+
+#Connection screen
+def connectionScreen()
+    disp.fill(255)
+    exit()
 
 #Main screen
 def mainScreen():
