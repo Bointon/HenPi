@@ -8,12 +8,23 @@ Adafruit Blinka to support CircuitPython libraries. CircuitPython does
 not support PIL/pillow (python imaging library)!
 """
 
+#LCD display
 import time
 import subprocess
 import digitalio
 import board
 from PIL import Image, ImageDraw, ImageFont
 import adafruit_rgb_display.ili9341 as ili9341
+
+#Encoder
+clk_pin = 17
+dt_pin = 18
+GPIO.setmode(GPIO.BCM)
+GPIO.setup(clk_pin, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
+GPIO.setup(dt_pin, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
+
+counter = 0
+clkLastState = GPIO.input(clk_pin)
 
 #Initialise the LCD screen
 cs_pin = digitalio.DigitalInOut(board.CE0)
@@ -68,7 +79,7 @@ def runTime():
             
         #cycle timer
         
-        time.sleep(0.1)
+        time.sleep(0.01)
 
 #Splash screen logo
 def splashScreen():
