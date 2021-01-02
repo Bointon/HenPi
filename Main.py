@@ -51,7 +51,7 @@ def runTime():
     splashTimer = 500
     splashTimerCnt = 0
     menuFlag = False
-    MainScreenFlag = False
+    mainScreenFlag = False
 
     while True:
     
@@ -61,11 +61,12 @@ def runTime():
             if splashTimer < splashTimerCnt:
                 splashFlag = False
                 mainScreenFlag = True
-        splashTimerCnt += 1
+            splashTimerCnt += 1
         if menuFlag == True:
             #The menu screen
             menuFlag = False
         if mainScreenFlag == True:
+            #The main display
             mainScreen()
         #cycle timer
         time.sleep(0.1)
