@@ -78,11 +78,12 @@ def runTime():
             #The main display
             if (TimerCnt % 100) == 0:
                 mainScreen()
+                print(TimerCnt)
             TimerCnt += 1
                      
             
         #cycle timer
-        if TimerCnt > 10000:
+        if TimerCnt > 1000:
             TimerCnt = 0
             exit()
         time.sleep(0.01)
