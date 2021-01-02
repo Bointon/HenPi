@@ -55,7 +55,7 @@ def runTime():
     #Standard runtime initialisation
     splashFlag = True
     splashTimer = 50
-    splashTimerCnt = 0
+    TimerCnt = 0
     menuFlag = False
     mainScreenFlag = False
     connectionScreenFlag = False
@@ -64,11 +64,11 @@ def runTime():
     
         if splashFlag == True:
             #The splash screen 
-            splashScreen(splashTimerCnt)
-            if splashTimer < splashTimerCnt:
+            splashScreen(TimerCnt)
+            if splashTimer < TimerCnt:
                 splashFlag = False
                 mainScreenFlag = True
-            splashTimerCnt += 1
+            TimerCnt += 1
 
             
         if menuFlag == True:
@@ -77,13 +77,16 @@ def runTime():
             
         if mainScreenFlag == True:
             #The main display
-            mainScreen()
-            if splashTimer*2 < splashTimerCnt:
-                exit()
-            splashTimerCnt += 1
+            if (TimerCnt % 100) == 0:
+                mainScreen()
+            TimerCnt += 1
+            
+           
             
         #cycle timer
-        
+        if TimerCnt > 10000:
+            TimerCnt = 0
+            exit()
         time.sleep(0.01)
 
 #Splash screen logo
@@ -102,7 +105,8 @@ def mainScreen():
     #draw the backgorund of the main menu
     padding = 2
     connectedFlag = True
-    
+
+    if
     titleText = "Material: Aluminium"
     draw = ImageDraw.Draw(image)
     draw.rectangle((0, 0, disp.height, disp.width), outline=0, fill=(255,255,255))
