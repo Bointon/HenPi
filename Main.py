@@ -51,6 +51,7 @@ def runTime():
     splashTimer = 500
     splashTimerCnt = 0
     menuFlag = False
+    MainScreenFlag = False
 
     while True:
     
@@ -59,10 +60,13 @@ def runTime():
             splashScreen()
             if splashTimer < splashTimerCnt:
                 splashFlag = False
+                mainScreenFlag = True
         splashTimerCnt += 1
         if menuFlag == True:
             #The menu screen
             menuFlag = False
+        if mainScreenFlag == True:
+            mainScreen()
         #cycle timer
         time.sleep(0.1)
 
@@ -90,4 +94,13 @@ def splashScreen():
     # Display image.
     disp.image(image)
 
+#Main screen
+def mainScreen():
+    draw = ImageDraw.Draw(image)
+
+    # Draw a black filled box to clear the image.
+    draw.rectangle((0, 0, width, height), outline=0, fill=(0, 0, 0))
+    disp.image(image)
+
+#Start the runtime
 runTime()
