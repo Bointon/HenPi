@@ -73,15 +73,15 @@ def splashScreen():
     width, height = disp.height, disp.width
     
     # Crop and center the image
-    x = ((width - image.width) // 2)
-    y = ((height - image.height) // 2)
+    x = ((width - image.width) // 2) 
+    y = ((height - image.height) // 2) 
 
     print(width,height)
     print(image.width, image.height)
     print(x,y)
     
     # Display image.
-    disp.image(image, 0, x, y)
+    disp.image(image, 0, y, x)
 
 #Main screen
 def mainScreen():
