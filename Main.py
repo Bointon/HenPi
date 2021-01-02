@@ -60,6 +60,7 @@ while True:
         splashTimerCnt += 1
     if menuFlag == true:
         #The menu screen
+        menuFlag = false
 
     #cycle timer
     time.sleep(0.1)
@@ -89,5 +90,3 @@ def splashScreen():
     # Display image.
     disp.image(image)
 
-
-    time.sleep(0.1)
