@@ -68,9 +68,13 @@ def splashScreen():
     
     image = Image.open("logo.png")
     disp.fill()
+
+    #Rotated image correction
+    width, height = image.height, image.width
+    
     # Crop and center the image
-    x = ((disp.width - image.width) // 2)
-    y = ((disp.height - image.height) // 2)
+    x = ((disp.width - width) // 2)
+    y = ((disp.height - height) // 2)
 
     print(disp.width,disp.height)
     print(image.width, image.height)
