@@ -62,6 +62,9 @@ def runTime():
         if mainScreenFlag == True:
             #The main display
             mainScreen()
+            if splashTimer*2 < splashTimerCnt:
+                exit()
+            splashTimerCnt += 1
             
         #cycle timer
         
@@ -81,11 +84,10 @@ def splashScreen():
 def mainScreen():
 
     image = Image.new("RGB", (disp.width, disp.height))
-    
     draw = ImageDraw.Draw(image)
     draw.rectangle((0, 0, disp.height, disp.width), outline=0, fill=0)
-
     disp.image(image)
-    exit()
+
+
 #Start the runtime
 runTime()
