@@ -90,7 +90,7 @@ def runTime():
                     enc_counter += 1
                 else:
                     enc_counter -= 1
-                print enc_counter
+                print(enc_counter)
                 clkLastState = clkState
                 
         finally:
