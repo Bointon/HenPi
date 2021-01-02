@@ -46,7 +46,7 @@ GPIO.setmode(GPIO.BCM)
 GPIO.setup(clk_pin, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
 GPIO.setup(dt_pin, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
 
-counter = 0
+enc_counter = 0
 clkLastState = GPIO.input(clk_pin)
 
 #Standard runtime
@@ -78,9 +78,25 @@ def runTime():
             #The main display
             if (TimerCnt % 100) == 0:
                 mainScreen()
-                print(TimerCnt)
             TimerCnt += 1
                      
+
+        #encoder input
+        try:
+
+        while True:
+                clkState = GPIO.input(clk_pin)
+                dtState = GPIO.input(dt_pin)
+                if clkState != clkLastState:
+                        if dtState != clkState:
+                                enc_counter += 1
+                        else:
+                                enc_counter -= 1
+                        print enc_counter
+                clkLastState = clkState
+                sleep(0.01)
+finally:
+        GPIO.cleanup()
             
         #cycle timer
         if TimerCnt > 1000:
