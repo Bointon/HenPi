@@ -82,7 +82,7 @@ def splashScreen():
 
 #Connection screen
 def connectionScreen():
-    disp.fillscreen(white)
+    disp.fill(100)
     exit()
 
 #Main screen
