@@ -83,7 +83,7 @@ def runTime():
         time.sleep(0.01)
 
 #Splash screen logo
-def splashScreen():
+def splashScreen(splashTimerCnt):
 
     if splashTimerCnt == 0:
         #image should be in the 320x240 px format
