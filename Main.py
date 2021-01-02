@@ -70,7 +70,7 @@ def splashScreen():
     disp.fill()
 
     #Rotated image correction
-    width, height = image.height, image.width
+    width, height = disp.height, disp.width
     
     # Crop and center the image
     x = ((disp.width - width) // 2)
