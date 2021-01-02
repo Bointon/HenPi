@@ -52,7 +52,6 @@ def runTime():
                 splashFlag = False
                 mainScreenFlag = True
             splashTimerCnt += 1
-            print("Splash")
         if menuFlag == True:
             #The menu screen
             menuFlag = False
