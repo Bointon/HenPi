@@ -67,7 +67,7 @@ def runTime():
     e1 = Encoder(18, 17, callback=encoderChanged)
     GPIO.setup(4, GPIO.IN)  
     GPIO.setup(16, GPIO.IN, pull_up_down=GPIO.PUD_DOWN) 
-    GPIO.add_event_detect(4, GPIO.FALLING, callback=encoderButton, bouncetime=300)  
+    GPIO.add_event_detect(4, GPIO.FALLING, callback=encoderButton(menuFlag), bouncetime=300)  
     GPIO.add_event_detect(16, GPIO.FALLING, callback=clearButton, bouncetime=300)  
 
     
@@ -158,7 +158,7 @@ def encoderChanged(value):
     print("encoder Changed")
 
 #encoder button
-def encoderButton(value):
+def encoderButton(menuFlag):
     if menuFlag == False:
         menuFlag = True
 
