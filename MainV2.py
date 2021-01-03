@@ -142,7 +142,7 @@ def encoderChanged(value):
     print("encoder Changed")
 
 #encoder button
-def encoderButton():
+def encoderButton(global state):
     #if on main screen and button is pressed enable menu
     if state == 1:
         state = 2
