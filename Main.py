@@ -12,6 +12,7 @@ import time
 import subprocess
 import digitalio
 import board
+import RPi.GPIO as GPIO 
 from PIL import Image, ImageDraw, ImageFont
 import adafruit_rgb_display.ili9341 as ili9341
 from encoder import Encoder
@@ -39,6 +40,13 @@ font = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf", 24)
 image = Image.new("RGB", (disp.height, disp.width))
     
 
+#setup buttons encoder on pins 17,18, buttons are on 
+e1 = Encoder(18, 17, callback=encoderChanged)
+GPIO.setup(4, GPIO.IN)  
+GPIO.setup(16, GPIO.IN) 
+GPIO.add_event_detect(4, GPIO.FALLING, callback=encoderButton, bouncetime=300)  
+GPIO.add_event_detect(16, GPIO.FALLING, callback=my_callback, bouncetime=300)  
+
 #Standard runtime
 def runTime():
     
@@ -49,8 +57,8 @@ def runTime():
     menuFlag = False
     mainScreenFlag = False
     connectionScreenFlag = False
-    e1 = Encoder(18, 17, callback=valueChanged)
-    print(e1)
+
+
     
     while True:
     
@@ -114,9 +122,13 @@ def mainScreen():
 
 
 #encoder
-def valueChanged(value):
+def encoderChanged(value):
     # Or do something useful with the value here!
     print("Hi")
+
+#encoder button
+def encoderButton(channel):  
+    print "falling edge detected on encoder"     
 
 
 #Start the runtime
