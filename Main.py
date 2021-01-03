@@ -115,8 +115,8 @@ def mainScreen():
 
 #encoder
 def valueChanged(value):
-    pass # Or do something useful with the value here!
-
+    # Or do something useful with the value here!
+    print("Hi")
 
 
 #Start the runtime
