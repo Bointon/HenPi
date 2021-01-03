@@ -76,7 +76,7 @@ def runTime():
             exit()
 
         #check inputs
-        e1 = Encoder(26, 19, callback=valueChanged)
+        e1 = Encoder(17, 18, callback=valueChanged)
         print(e1)
         time.sleep(0.01)
 
