@@ -40,12 +40,6 @@ font = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf", 24)
 image = Image.new("RGB", (disp.height, disp.width))
     
 
-#setup buttons encoder on pins 17,18, buttons are on 
-e1 = Encoder(18, 17, callback=valueChanged)
-GPIO.setup(4, GPIO.IN)  
-GPIO.setup(16, GPIO.IN) 
-GPIO.add_event_detect(4, GPIO.FALLING, callback=encoder_button, bouncetime=300)  
-#GPIO.add_event_detect(16, GPIO.FALLING, callback=my_callback, bouncetime=300)  
 
 #Standard runtime
 def runTime():
@@ -58,6 +52,12 @@ def runTime():
     mainScreenFlag = False
     connectionScreenFlag = False
 
+    #setup buttons encoder on pins 17,18, buttons are on 
+    e1 = Encoder(18, 17, callback=valueChanged)
+    GPIO.setup(4, GPIO.IN)  
+    GPIO.setup(16, GPIO.IN) 
+    GPIO.add_event_detect(4, GPIO.FALLING, callback=my_callback, bouncetime=300)  
+    GPIO.add_event_detect(16, GPIO.FALLING, callback=my_callback, bouncetime=300)  
 
     
     while True:
@@ -121,14 +121,13 @@ def mainScreen():
     disp.image(image)
 
 
-#encoder
+#encoder changed
 def valueChanged(value):
-    # Or do something useful with the value here!
     print("Hi")
 
 #encoder button
-def encoder_button(channel):  
-    print("encoderbutton")     
+def my_callback(value);
+    print("button pressed") 
 
 
 #Start the runtime
