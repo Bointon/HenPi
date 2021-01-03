@@ -41,11 +41,13 @@ font = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf", 24)
 image = Image.new("RGB", (disp.height, disp.width))
 
 #encoder setup
-e1 = Encoder(18, 17, callback=encoderChanged)
+
     
 #flags
 state = 0
+stagFlag = False
 encoderValue = 0
+oldencoderValue = 0
 
 #Standard runtime
 def runTime():
@@ -53,8 +55,9 @@ def runTime():
     #Standard runtime initialisation
     global state
     global encoderValue
-    global e1
-    splashTimer = 5000
+    global oldencoderValue
+    global TimerCnt
+    splashTimer = 500
     TimerCnt = 0
 
 
@@ -74,7 +77,6 @@ def runTime():
                 state = 1
             TimerCnt += 1
             
-        
         #The main display
         if state == 1:
             if (TimerCnt % 100) == 0:
@@ -83,18 +85,27 @@ def runTime():
 
         if state == 2:
             #The menu screen
+            if stateFlag == True
+                oldencoderValue = encoderValue
+                stateFlag = False
+
             if (TimerCnt % 100) == 0:
                  menuScreen()
-                 print(e1.value)
+                 print(oldencoderValue - encoderValue)
             TimerCnt += 1
            
+        #check encoder if it has been changed
+        if checkEncoder == True
+            encoderValue = e1.value
+            print(encoderValue)
+            checkEncoder = False
+
             
         #cycle timer
         if TimerCnt > 10000:
             TimerCnt = 0
-
-        #check inputs
         time.sleep(0.01)
+        
 
 #Splash screen logo
 def splashScreen(splashTimerCnt):
@@ -154,19 +165,21 @@ def menuScreen():
 
 #encoder changed
 def encoderChanged(value):
-    print("encoder Changed")
+    global checkEncoder
+    checkEncoder = True
 
 #encoder button
 def encoderButton(value):
     global state
+    global stateFlag
     #if on main screen and button is pressed enable menu
     if state == 1:
         state = 2
-        print("I am in state 2")
+        stateFlag = True
    
     elif state > 1:
         state = 1
-        print("I am in state 1")
+        stateFlag = True
 
 #clear button
 def clearButton(value):
