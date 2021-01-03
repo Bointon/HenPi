@@ -123,7 +123,8 @@ def mainScreen():
 
 #encoder changed
 def encoderChanged(value):
-    print("encoder Changed")
+    value = e1.getValue()
+    print("encoder Changed"+value)
 
 #encoder button
 def encoderButton(value):
