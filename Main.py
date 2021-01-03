@@ -8,13 +8,14 @@ Adafruit Blinka to support CircuitPython libraries. CircuitPython does
 not support PIL/pillow (python imaging library)!
 """
 
-#LCD display
 import time
 import subprocess
 import digitalio
 import board
 from PIL import Image, ImageDraw, ImageFont
 import adafruit_rgb_display.ili9341 as ili9341
+from encoder import Encoder
+
 
 #Initialise the LCD screen
 cs_pin = digitalio.DigitalInOut(board.CE0)
@@ -37,17 +38,6 @@ disp = ili9341.ILI9341(
 font = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf", 24)
 image = Image.new("RGB", (disp.height, disp.width))
     
-
-#Encoder
-from RPi import GPIO
-clk_pin = 17
-dt_pin = 18
-GPIO.setmode(GPIO.BCM)
-GPIO.setup(clk_pin, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
-GPIO.setup(dt_pin, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
-
-enc_counter = 0
-clkLastState = GPIO.input(clk_pin)
 
 #Standard runtime
 def runTime():
@@ -78,13 +68,16 @@ def runTime():
             #The main display
             if (TimerCnt % 100) == 0:
                 mainScreen()
-                readEncoder()
             TimerCnt += 1
             
         #cycle timer
         if TimerCnt > 1000:
             TimerCnt = 0
             exit()
+
+        #check inputs
+        e1 = Encoder(26, 19, callback=valueChanged)
+        print(e1)
         time.sleep(0.01)
 
 #Splash screen logo
@@ -118,27 +111,12 @@ def mainScreen():
         
     disp.image(image)
 
-def readEncoder():
 
-    counter = 0
-    clkLastState = GPIO.input(clk_pin)
+#encoder
+def valueChanged(value):
+    pass # Or do something useful with the value here!
 
-    try:
 
-        while True:
-            clkState = GPIO.input(clk_pin)
-            dtState = GPIO.input(dt_pin)
-            if clkState != clkLastState:
-                if dtState != clkState:
-                    counter += 1
-                else:
-                    counter -= 1
-                print(counter)
-            clkLastState = clkState
-            time.sleep(0.01)
-    finally:
-        GPIO.cleanup()
-    
 
 #Start the runtime
 runTime()
