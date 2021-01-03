@@ -45,6 +45,12 @@ global menuFlag
 global mainScreenFlag
 global connectionScreenFlag
 
+splashFlag = True
+menuFlag = False
+mainScreenFlag = False
+connectionScreenFlag = False
+
+
 #Standard runtime
 def runTime():
     
