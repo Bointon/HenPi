@@ -52,7 +52,10 @@ def runTime():
     
     splashTimer = 5000
     TimerCnt = 0
-   
+    splashFlag = True
+    menuFlag = False
+    mainScreenFlag = False
+    connectionScreenFlag = False
 
     #setup buttons encoder on pins 17,18, buttons are on 4 and 16
     e1 = Encoder(18, 17, callback=encoderChanged)
