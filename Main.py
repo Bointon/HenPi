@@ -40,10 +40,10 @@ font = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf", 24)
 image = Image.new("RGB", (disp.height, disp.width))
     
 #flags
-splashFlag = True
-menuFlag = False
-mainScreenFlag = False
-connectionScreenFlag = False
+global splashFlag = True
+global menuFlag = False
+global mainScreenFlag = False
+global connectionScreenFlag = False
 
 #Standard runtime
 def runTime():
