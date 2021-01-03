@@ -92,23 +92,20 @@ def runTime():
             #The menu screen
             if stateFlag == True:
                 oldencoderValue = encoderValue
+                menuScreen(menuRange[state][0])
                 stateFlag = False
 
             selector = oldencoderValue-encoderValue
-            if selector <= menuRange[state][0]:
-                oldencoderValue = encoderValue - menuRange[state][0]
+            if selector < menuRange[state][0]:
+                oldencoderValue = encoderValue
                 selector = menuRange[state][0]
-                print(selector)
                 menuScreen(selector)
             elif selector > menuRange[state][1]:
                 oldencoderValue = encoderValue - menuRange[state][1]
                 selector = menuRange[state][1]
                 menuScreen(selector)
-                print(selector)
-
-            if ((TimerCnt % 100) == 0):
-                menuScreen(selector)
-                 
+                
+            print(selector)     
             TimerCnt += 1
            
         #check encoder if it has been changed
