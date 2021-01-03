@@ -123,7 +123,7 @@ def mainScreen():
 
 #encoder changed
 def encoderChanged(value):
-    print("Hi"+value)
+    print("encoder Changed")
 
 #encoder button
 def encoderButton(value):
