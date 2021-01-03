@@ -95,7 +95,7 @@ def runTime():
                 stateFlag = False
 
             selector = oldencoderValue-encoderValue
-            if selector < menuRange[state][0]: 
+            if selector <= menuRange[state][0]:
                 oldencoderValue = encoderValue - menuRange[state][0]
                 selector = menuRange[state][0]
                 print(selector)
