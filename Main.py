@@ -53,7 +53,7 @@ def runTime():
     connectionScreenFlag = False
 
     #setup buttons encoder on pins 17,18, buttons are on 
-    e1 = Encoder(18, 17, callback=encoderChanged)
+    e1 = Encoder(18, 17, callback=encoderChanged(e1))
     GPIO.setup(4, GPIO.IN)  
     GPIO.setup(16, GPIO.IN, pull_up_down=GPIO.PUD_DOWN) 
     GPIO.add_event_detect(4, GPIO.FALLING, callback=encoderButton, bouncetime=300)  
