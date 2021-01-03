@@ -147,7 +147,7 @@ def encoderButton(value):
         state = 2
         print("I am in state 2")
    
-    if state > 1:
+    elif state > 1:
         state = 1
         print("I am in state 1")
 
