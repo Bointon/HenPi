@@ -62,13 +62,15 @@ def runTime():
     splashTimer = 500
     TimerCnt = 0
 
-
     #setup buttons encoder on pins 17,18, buttons are on 4 and 16
     e1 = Encoder(18, 17, callback=encoderChanged)
     GPIO.setup(4, GPIO.IN)  
     GPIO.setup(16, GPIO.IN, pull_up_down=GPIO.PUD_DOWN) 
     GPIO.add_event_detect(4, GPIO.FALLING, callback=encoderButton, bouncetime=300)  
     GPIO.add_event_detect(16, GPIO.FALLING, callback=clearButton, bouncetime=300)  
+
+    #Encoder values for each state machine
+    menuRange = [[0,0],[0,0],[0,4]]
 
     
     while True:
@@ -90,6 +92,14 @@ def runTime():
             if stateFlag == True:
                 oldencoderValue = encoderValue
                 stateFlag = False
+
+            selector = oldencoderValue-encoderValue
+            if selector < menuRange[state][0]:
+                oldencoderValue = encoderValue
+                selector = menuRange[state][0]
+            elif selector > menuRange[state][1]:
+                oldencoderValue = encoderValue
+                selector = menuRange[state][1]
 
             if (TimerCnt % 100) == 0:
                  menuScreen()
@@ -141,12 +151,14 @@ def mainScreen():
     disp.image(image)
 
 #Main screen
-def menuScreen():
+def menuScreen(Selector):
     #draw the backgorund of the main menu
     padding = 2
     menuSelect = 2
+
     
-    titleText = "Menu"
+    titleText = "Menu"      
+    
     draw = ImageDraw.Draw(image)
     draw.rectangle((0, 0, disp.height, disp.width), outline=0, fill=(255,255,255))
     draw.rectangle((0, 0, disp.height-1, 36), outline=(255,255,255), fill=(100,100,100))
