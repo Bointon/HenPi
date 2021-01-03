@@ -85,7 +85,7 @@ def runTime():
 
         if state == 2:
             #The menu screen
-            if stateFlag == True
+            if stateFlag == True:
                 oldencoderValue = encoderValue
                 stateFlag = False
 
