@@ -103,14 +103,14 @@ def runTime():
                 selector = menuRange[state][1]
 
             if (TimerCnt % 100) == 0:
-                 menuScreen(selector)
+                print(selector)
+                menuScreen(selector)
                  
             TimerCnt += 1
            
         #check encoder if it has been changed
         if checkEncoder == True:
             encoderValue = e1.value
-            print(encoderValue)
             checkEncoder = False
 
             
@@ -155,8 +155,6 @@ def mainScreen():
 def menuScreen(menuSelect):
     #draw the backgorund of the main menu
     padding = 2
-    menuSelect = 2
-
     
     titleText = "Menu"      
     
