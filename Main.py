@@ -52,8 +52,8 @@ def runTime():
     mainScreenFlag = False
     connectionScreenFlag = False
 
-    #setup buttons encoder on pins 17,18, buttons are on 
-    e1 = Encoder(18, 17, callback=encoderChanged(e1))
+    #setup buttons encoder on pins 17,18, buttons are on 4 and 16
+    e1 = Encoder(18, 17, callback=encoderChanged)
     GPIO.setup(4, GPIO.IN)  
     GPIO.setup(16, GPIO.IN, pull_up_down=GPIO.PUD_DOWN) 
     GPIO.add_event_detect(4, GPIO.FALLING, callback=encoderButton, bouncetime=300)  
@@ -78,11 +78,11 @@ def runTime():
             #The main display
             if (TimerCnt % 100) == 0:
                 mainScreen()
-                print(e1)
             TimerCnt += 1
+            print(e1)
             
         #cycle timer
-        if TimerCnt > 1000:
+        if TimerCnt > 10000:
             TimerCnt = 0
             exit()
 
