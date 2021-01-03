@@ -71,7 +71,7 @@ def runTime():
     GPIO.add_event_detect(16, GPIO.FALLING, callback=clearButton, bouncetime=300)  
 
     #Encoder values for each state machine
-    menuRange = [[0,0],[0,0],[0,4]]
+    menuRange = [[0,0],[0,0],[1,4]]
 
     
     while True:
@@ -99,7 +99,7 @@ def runTime():
                 oldencoderValue = encoderValue
                 selector = menuRange[state][0]
             elif selector > menuRange[state][1]:
-                oldencoderValue = encoderValue
+                oldencoderValue = encoderValue - menuRange[state][1]
                 selector = menuRange[state][1]
 
             if (TimerCnt % 100) == 0:
