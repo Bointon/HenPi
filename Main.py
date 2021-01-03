@@ -49,7 +49,9 @@ def runTime():
     menuFlag = False
     mainScreenFlag = False
     connectionScreenFlag = False
-
+    e1 = Encoder(18, 17, callback=valueChanged)
+    print(e1)
+    
     while True:
     
         if splashFlag == True:
@@ -76,8 +78,7 @@ def runTime():
             exit()
 
         #check inputs
-        e1 = Encoder(17, 18, callback=valueChanged)
-        print(e1)
+
         time.sleep(0.01)
 
 #Splash screen logo
