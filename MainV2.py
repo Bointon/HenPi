@@ -95,7 +95,7 @@ def runTime():
             TimerCnt += 1
            
         #check encoder if it has been changed
-        if checkEncoder == True
+        if checkEncoder == True:
             encoderValue = e1.value
             print(encoderValue)
             checkEncoder = False
