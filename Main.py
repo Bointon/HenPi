@@ -78,6 +78,7 @@ def runTime():
             #The main display
             if (TimerCnt % 100) == 0:
                 mainScreen()
+                print(e1)
             TimerCnt += 1
             
         #cycle timer
@@ -123,8 +124,7 @@ def mainScreen():
 
 #encoder changed
 def encoderChanged(value):
-    value = e1.getValue()
-    print("encoder Changed"+value)
+    print("encoder Changed")
 
 #encoder button
 def encoderButton(value):
