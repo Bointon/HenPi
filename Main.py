@@ -53,11 +53,11 @@ def runTime():
     connectionScreenFlag = False
 
     #setup buttons encoder on pins 17,18, buttons are on 
-    e1 = Encoder(18, 17, callback=valueChanged)
+    e1 = Encoder(18, 17, callback=encoderChanged)
     GPIO.setup(4, GPIO.IN)  
     GPIO.setup(16, GPIO.IN) 
-    GPIO.add_event_detect(4, GPIO.FALLING, callback=my_callback, bouncetime=300)  
-    GPIO.add_event_detect(16, GPIO.FALLING, callback=my_callback, bouncetime=300)  
+    GPIO.add_event_detect(4, GPIO.FALLING, callback=encoderButton, bouncetime=300)  
+    GPIO.add_event_detect(16, GPIO.FALLING, callback=clearButton, bouncetime=300)  
 
     
     while True:
@@ -122,13 +122,16 @@ def mainScreen():
 
 
 #encoder changed
-def valueChanged(value):
-    print("Hi")
+def encoderChanged(value):
+    print("Hi"+value)
 
 #encoder button
-def my_callback(value):
-    print("button pressed") 
+def encoderButton(value):
+    print("Encoder button pressed") 
 
+#clear button
+def clearButton(value):
+    print("Clear button pressed") 
 
 #Start the runtime
 runTime()
