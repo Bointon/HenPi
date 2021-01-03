@@ -76,7 +76,6 @@ def runTime():
             TimerCnt += 1
 
         if state == 2:
-            print("Menu")
             #The menu screen
             if (TimerCnt % 100) == 0:
                  menuScreen()
@@ -136,6 +135,8 @@ def menuScreen():
     draw.text((padding, 4+2*36), "Connection" , font=font, fill=0)
     draw.text((padding, 4+3*36), "Settings" , font=font, fill=0)
     draw.text((padding, 4+4*36), "About" , font=font, fill=0)
+
+    draw.rectangle((padding,menuSelect * 36 , disp.height-1, (menuSelect+1)*36), outline=(255,255,255), fill=(100,100,100))  
 
     disp.image(image)
 
