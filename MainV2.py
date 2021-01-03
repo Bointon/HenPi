@@ -132,14 +132,14 @@ def menuScreen():
     draw.rectangle((0, 0, disp.height-1, 36), outline=(255,255,255), fill=(100,100,100))
 
     #draw selected menu cursor
-    draw.rectangle((padding,menuSelect * 36 , disp.height-1, (menuSelect+1)*36), outline=(0,0,0), fill=(255,255,255))  
+    draw.rectangle((padding,menuSelect * 36 , disp.height-padding, (menuSelect+1)*36), outline=(0,0,0), fill=(255,255,255))  
 
     draw.text(((disp.height-font.getsize(titleText)[0])/2, 4), titleText , font=font, fill="#FFFFFF")
 
-    draw.text((padding, 4+36), "Materials" , font=font, fill=0)
-    draw.text((padding, 4+2*36), "Connection" , font=font, fill=0)
-    draw.text((padding, 4+3*36), "Settings" , font=font, fill=0)
-    draw.text((padding, 4+4*36), "About" , font=font, fill=0)
+    draw.text((2*padding, 4+36), "Materials" , font=font, fill=0)
+    draw.text((2*padding, 4+2*36), "Connection" , font=font, fill=0)
+    draw.text((2*padding, 4+3*36), "Settings" , font=font, fill=0)
+    draw.text((2*padding, 4+4*36), "About" , font=font, fill=0)
 
     
     disp.image(image)
