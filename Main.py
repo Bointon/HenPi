@@ -126,7 +126,7 @@ def valueChanged(value):
     print("Hi")
 
 #encoder button
-def my_callback(value);
+def my_callback(value):
     print("button pressed") 
 
 
