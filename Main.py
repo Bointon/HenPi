@@ -39,18 +39,20 @@ disp = ili9341.ILI9341(
 font = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf", 24)
 image = Image.new("RGB", (disp.height, disp.width))
     
-
+#flags
+splashFlag = True
+menuFlag = False
+mainScreenFlag = False
+connectionScreenFlag = False
 
 #Standard runtime
 def runTime():
     
     #Standard runtime initialisation
-    splashFlag = True
+    
     splashTimer = 5000
     TimerCnt = 0
-    menuFlag = False
-    mainScreenFlag = False
-    connectionScreenFlag = False
+   
 
     #setup buttons encoder on pins 17,18, buttons are on 4 and 16
     e1 = Encoder(18, 17, callback=encoderChanged)
@@ -72,13 +74,16 @@ def runTime():
             
         if menuFlag == True:
             #The menu screen
-            menuFlag = False
+            menuScreen()
+            if TimerCnt > 100:
+                menuFlag = False
             
         if mainScreenFlag == True:
             #The main display
             if (TimerCnt % 100) == 0:
                 mainScreen()
             TimerCnt += 1
+
             print(e1.getValue())
             
         #cycle timer
@@ -121,6 +126,20 @@ def mainScreen():
         
     disp.image(image)
 
+#Main screen
+def menuScreen():
+    #draw the backgorund of the main menu
+    padding = 2
+    
+
+    titleText = "Menu"
+    draw = ImageDraw.Draw(image)
+    draw.rectangle((0, 0, disp.height, disp.width), outline=0, fill=(255,255,255))
+    draw.rectangle((0, 0, disp.height-1, 36), outline=(255,255,255), fill=(100,100,100))
+    draw.text(((disp.height-font.getsize(titleText)[0])/2, 4), titleText , font=font, fill="#FFFFFF")
+
+    disp.image(image)
+
 
 #encoder changed
 def encoderChanged(value):
@@ -128,7 +147,8 @@ def encoderChanged(value):
 
 #encoder button
 def encoderButton(value):
-    print("Encoder button pressed") 
+    if menuFlag == False:
+        menuFlag = True
 
 #clear button
 def clearButton(value):
