@@ -74,8 +74,11 @@ def runTime():
             
         if menuFlag == True:
             #The menu screen
-            menuScreen()
-            if TimerCnt > 100:
+            if (TimerCnt % 100) == 0:
+                 menuScreen()
+            TimerCnt += 1
+           
+            if TimerCnt > 1000:
                 menuFlag = False
             
         if mainScreenFlag == True:
