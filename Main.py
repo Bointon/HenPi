@@ -79,7 +79,7 @@ def runTime():
             if (TimerCnt % 100) == 0:
                 mainScreen()
             TimerCnt += 1
-            print(e1)
+            print(e1.getValue())
             
         #cycle timer
         if TimerCnt > 10000:
