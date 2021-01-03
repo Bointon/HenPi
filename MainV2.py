@@ -40,7 +40,6 @@ font = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf", 24)
 image = Image.new("RGB", (disp.height, disp.width))
     
 #flags
-global state
 state = 0
 
 
@@ -76,9 +75,8 @@ def runTime():
                 mainScreen()
             TimerCnt += 1
 
-            print(e1.getValue())
-
         if state == 2:
+            print("Menu")
             #The menu screen
             if (TimerCnt % 100) == 0:
                  menuScreen()
@@ -147,10 +145,11 @@ def encoderButton(value):
     #if on main screen and button is pressed enable menu
     if state == 1:
         state = 2
-        print(state)
-        
+        print("I am in state 2")
+   
     if state > 1:
         state = 1
+        print("I am in state 1")
 
 #clear button
 def clearButton(value):
