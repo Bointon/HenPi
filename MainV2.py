@@ -55,6 +55,7 @@ def runTime():
     
     #Standard runtime initialisation
     global state
+    global stateFlag
     global encoderValue
     global oldencoderValue
     global TimerCnt
