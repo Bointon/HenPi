@@ -104,7 +104,7 @@ def runTime():
                 selector = menuRange[state][1]
                 menuScreen(selector)
 
-            if ((TimerCnt % 100) == 0) (checkEncoder):
+            if ((TimerCnt % 100) == 0):
                 menuScreen(selector)
                  
             TimerCnt += 1
