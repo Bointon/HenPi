@@ -48,7 +48,7 @@ state = 0
 def runTime():
     
     #Standard runtime initialisation
-    
+    global state
     splashTimer = 5000
     TimerCnt = 0
 
