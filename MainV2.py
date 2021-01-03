@@ -8,6 +8,7 @@ Adafruit Blinka to support CircuitPython libraries. CircuitPython does
 not support PIL/pillow (python imaging library)!
 """
 
+#standard imports
 import time
 import subprocess
 import digitalio
@@ -38,16 +39,21 @@ disp = ili9341.ILI9341(
 
 font = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf", 24)
 image = Image.new("RGB", (disp.height, disp.width))
+
+#encoder setup
+e1 = Encoder(18, 17, callback=encoderChanged)
     
 #flags
 state = 0
-
+encoderValue = 0
 
 #Standard runtime
 def runTime():
     
     #Standard runtime initialisation
     global state
+    global encoderValue
+    global e1
     splashTimer = 5000
     TimerCnt = 0
 
@@ -79,6 +85,7 @@ def runTime():
             #The menu screen
             if (TimerCnt % 100) == 0:
                  menuScreen()
+                 print(e1.value)
             TimerCnt += 1
            
             
