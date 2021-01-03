@@ -128,7 +128,7 @@ def encoderChanged(value):
 
 #encoder button
 def encoderButton(channel):  
-    print "falling edge detected on encoder"     
+    print(falling edge detected on encoder)     
 
 
 #Start the runtime
