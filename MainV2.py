@@ -148,6 +148,7 @@ def runTime():
             print("About menu")
             if stateFlag:
                 aboutScreen()
+                stateFlag = False
                 
             if encoderButtonPressed:
                 state = 2
@@ -242,7 +243,7 @@ def aboutScreen():
 
     draw.text(((disp.height-font.getsize(titleText)[0])/2, 4), titleText , font=font, fill="#FFFFFF")
 
-    textArray = ["Henniker Scientific","HW Ver","SW Ver","Support"]
+    textArray = ["Henniker Scientific","www.website.com","Pnoe #","HW Ver      SW Ver"]
     for i in range(0,4):
         draw.text((2*padding, 4+(i+1)*36), textArray[i] , font=font, fill=0)
 
