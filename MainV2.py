@@ -93,7 +93,7 @@ def runTime():
             if stateFlag == True:
                 oldencoderValue = encoderValue
                 selector = rangeMenu[state][0]
-
+                menuScreen(selector)
                 stateFlag = False
 
             #check if the encoder has changed and update the menu
