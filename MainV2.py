@@ -319,6 +319,7 @@ def settingsScreen(menuSelect):
         draw.text((2*padding, 4+(i+1)*36), textArray[i] , font=font, fill=0)
         if i < 5:
             lineText = textOptions[i][settings[i]]
+            print(lineText)
             draw.text(((font.getsize(lineText)[0]), 4+(i+1)*36), lineText , font=font, fill=0)
 
     disp.image(image)
