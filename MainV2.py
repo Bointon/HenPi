@@ -122,6 +122,7 @@ def runTime():
                 print(selector)
                 state = menuOut[selector - 1]
                 encoderButtonPressed = False
+                stateFlag = True
                 
         #Materials menu 
         if state == 3:
@@ -237,7 +238,6 @@ def encoderButton(value):
    
     elif state > 1:
         encoderButtonPressed = True
-        stateFlag = True
 
 #clear button
 def clearButton(value):
