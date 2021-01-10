@@ -314,10 +314,6 @@ def settingsScreen(menuSelect):
     draw.rectangle((padding,menuSelect * 36 , disp.height-padding, (menuSelect+1)*36), outline=(0,0,0), fill=(255,255,255))  
 
     draw.text(((disp.height-font.getsize(titleText)[0])/2, 4), titleText , font=font, fill="#FFFFFF")
-    print(settings[0])
-    print(settings[1])
-    print(settings[2])
-    print(settings[3])
 
     for i in range(0,4):
         draw.text((2*padding, 4+(i+1)*36), textArray[i] , font=font, fill=0)
