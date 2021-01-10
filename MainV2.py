@@ -160,7 +160,7 @@ def runTime():
                     selector  += 1
                     if selector >= rangeMenu[state][1]:
                         selector = rangeMenu[state][1]
-                   oldencoderValue = encoderValue
+                    oldencoderValue = encoderValue
                     settingsScreen(selector)
                 if encoderValue < oldencoderValue:
                     selector -= 1
