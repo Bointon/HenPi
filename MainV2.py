@@ -89,8 +89,11 @@ def runTime():
         if state == 1:
             if stateFlag == True:
                 mainScreen()
+                stateFlag = False
+                
             if (TimerCnt % 100) == 0:
                 mainScreen()
+                
             TimerCnt += 1
 
         if state == 2:
