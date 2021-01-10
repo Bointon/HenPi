@@ -173,8 +173,8 @@ def menuScreen(menuSelect):
     draw.text(((disp.height-font.getsize(titleText)[0])/2, 4), titleText , font=font, fill="#FFFFFF")
 
     textArray = ["Materials","Connection","Settings","About","Exit Menu"]
-    for i in range(1,5):
-        draw.text((2*padding, 4+i*36), textArray[i] , font=font, fill=0)
+    for i in range(0,4):
+        draw.text((2*padding, 4+(i+1)*36), textArray[i] , font=font, fill=0)
 
    
     disp.image(image)
