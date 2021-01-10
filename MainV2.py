@@ -49,6 +49,8 @@ stagFlag = False
 checkEncoder = False
 encoderValue = 0
 oldencoderValue = 0
+encoderButtonPressed = False
+
 
 #Standard runtime
 def runTime():
@@ -60,6 +62,7 @@ def runTime():
     global oldencoderValue
     global TimerCnt
     global checkEncoder
+    global encoderButtonPressed
     splashTimer = 500
     TimerCnt = 0
 
@@ -95,6 +98,7 @@ def runTime():
                 selector = rangeMenu[state][0]
                 menuScreen(selector)
                 stateFlag = False
+                menuOut[3,4,5,6,7]
 
             #check if the encoder has changed and update the menu
 
@@ -110,6 +114,26 @@ def runTime():
                     selector = rangeMenu[state][0]
                 oldencoderValue = encoderValue
                 menuScreen(selector)
+
+            if encoderButtonPressed
+                state = menuOut[selector - 1]
+                encoderButtonPressed = False
+                
+        #Materials menu 
+        if state == 3:
+        #Connection menu
+        if state == 4:
+        #Settings menu
+        if state == 5:
+        #About menu
+        if state == 6:
+            
+        #Return to the main menu
+        if state == 7:
+            state = 1
+            
+
+                
 
                         
            
@@ -189,13 +213,15 @@ def encoderChanged(value):
 def encoderButton(value):
     global state
     global stateFlag
+    global encoderButtonPressed
+    
     #if on main screen and button is pressed enable menu
     if state == 1:
         state = 2
         stateFlag = True
    
     elif state > 1:
-        state = 1
+        encoderButtonPressed = True
         stateFlag = True
 
 #clear button
