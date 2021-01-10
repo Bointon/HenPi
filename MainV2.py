@@ -152,7 +152,7 @@ def runTime():
 
             #check if the menu is in value edit mode
             if editFlag:
-
+                print("I am edit")
             else:
                 #check if the encoder has changed and update the menu
 
@@ -198,12 +198,8 @@ def runTime():
             
         #Return to the main menu
         if state == 7:
-            state = 1
-            
-
-                
-
-                        
+            state = 1              
+                    
            
         #check encoder if it has been changed
         if checkEncoder:
