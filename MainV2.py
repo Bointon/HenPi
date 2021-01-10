@@ -143,10 +143,17 @@ def runTime():
             print("Settings menu")
             state = 2
             
-        #About menu
+        #The About menu
         if state == 6:
             print("About menu")
-            state = 2
+            if stateFlag = True:
+                menuScreen()
+                
+            if encoderButtonPressed:
+                state = 2
+                encoderButtonPressed = False
+                stateFlag = True
+            
             
         #Return to the main menu
         if state == 7:
