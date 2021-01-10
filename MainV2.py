@@ -174,15 +174,18 @@ def runTime():
                 
                 if editFlag:
                     editFlag = False
-                
-                #Exit to menu
-                if selector == rangeMenu[state][1]:
-                    state = 2
+
                 else:
-                    editFlag = True
-                #state = menuOut[selector - 1]
+
+                    #Exit to menu
+                    if selector == rangeMenu[state][1]:
+                        state = 2
+                        stateFlag = True
+                    else:
+                        editFlag = True
+                    #state = menuOut[selector - 1]
                 encoderButtonPressed = False
-                stateFlag = True
+                
             
         #The About menu
         if state == 6:
