@@ -76,7 +76,7 @@ def runTime():
     GPIO.add_event_detect(16, GPIO.FALLING, callback=clearButton, bouncetime=300)  
 
     #range for each menu
-    rangeMenu = [[0,0],[0,0],[1,5],[0,0],[0,0],[1,6]]
+    rangeMenu = [[0,0],[0,0],[1,5],[0,0],[0,0],[1,5]]
 
 
     while True:
@@ -295,8 +295,8 @@ def settingsScreen(menuSelect):
 
     draw.text(((disp.height-font.getsize(titleText)[0])/2, 4), titleText , font=font, fill="#FFFFFF")
 
-    textArray = ["Screen Timeout:","Measurement Rate:","Averaging:","Thickness Units:","Rate Units:","Exit Settings"]
-    for i in range(0,6):
+    textArray = ["Measurement Rate:","Averaging:","Thickness Units:","Rate Units:","Exit Settings"]
+    for i in range(0,5):
         draw.text((2*padding, 4+(i+1)*36), textArray[i] , font=font, fill=0)
 
     disp.image(image)
