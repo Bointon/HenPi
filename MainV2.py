@@ -107,19 +107,12 @@ def runTime():
                     selector = rangeMenu[state][0]
                 oldencoderValue = encoderValue
 
-            print(selector)
-
-            #display the menu        
-            menuScreen(selector)
-                
-                
-
-                #need to fix the encoder range functionality
-
-                
-                
-              
+            #display the menu   
+            if (TimerCnt % 100) == 0:
+                menuScreen(selector)
             TimerCnt += 1
+
+            
            
         #check encoder if it has been changed
         if checkEncoder == True:
