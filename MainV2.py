@@ -141,8 +141,33 @@ def runTime():
             
         #Settings menu
         if state == 5:
-            print("Settings menu")
-            state = 2
+            #The menu screen
+            if stateFlag == True:
+                oldencoderValue = encoderValue
+                selector = rangeMenu[state][0]
+                settingsScreen(selector)
+                stateFlag = False
+                #list of the states for the menu selection
+            #check if the encoder has changed and update the menu
+
+            if encoderValue>oldencoderValue:
+                selector  += 1
+                if selector >= rangeMenu[state][1]:
+                    selector = rangeMenu[state][1]
+                oldencoderValue = encoderValue
+                settingsScreen(selector)
+            if encoderValue < oldencoderValue:
+                selector -= 1
+                if selector <= rangeMenu[state][0]:
+                    selector = rangeMenu[state][0]
+                oldencoderValue = encoderValue
+                settingsScreen(selector)
+
+            #if the encoder button is pressed move to the next menu
+            if encoderButtonPressed:
+                #state = menuOut[selector - 1]
+                encoderButtonPressed = False
+                stateFlag = True
             
         #The About menu
         if state == 6:
@@ -251,6 +276,28 @@ def aboutScreen():
 
     for i in range(0,5):
         draw.text(((disp.height-font.getsize(textArray[i])[0])/2, 4+(i+1)*36), textArray[i] , font=font, fill=0)
+
+    disp.image(image)
+
+#Menu screen
+def settingsScreen(menuSelect):
+    #draw the backgorund of the main menu
+    padding = 2
+    
+    titleText = "Settings"      
+    
+    draw = ImageDraw.Draw(image)
+    draw.rectangle((0, 0, disp.height, disp.width), outline=0, fill=(255,255,255))
+    draw.rectangle((0, 0, disp.height-1, 36), outline=(255,255,255), fill=(100,100,100))
+
+    #draw selected menu cursor
+    draw.rectangle((padding,menuSelect * 36 , disp.height-padding, (menuSelect+1)*36), outline=(0,0,0), fill=(255,255,255))  
+
+    draw.text(((disp.height-font.getsize(titleText)[0])/2, 4), titleText , font=font, fill="#FFFFFF")
+
+    textArray = ["Screen Timeout","Measurement Rate","Averaging","Thickness Units","Rate Units"]
+    for i in range(0,5):
+        draw.text((2*padding, 4+(i+1)*36), textArray[i] , font=font, fill=0)
 
     disp.image(image)
 
