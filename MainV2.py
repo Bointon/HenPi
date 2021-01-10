@@ -63,6 +63,7 @@ def runTime():
     global TimerCnt
     global checkEncoder
     global encoderButtonPressed
+    stateFlag = False
     splashTimer = 500
     TimerCnt = 0
 
