@@ -200,7 +200,7 @@ def mainScreen():
         
     disp.image(image)
 
-#Main screen
+#Menu screen
 def menuScreen(menuSelect):
     #draw the backgorund of the main menu
     padding = 2
@@ -223,6 +223,24 @@ def menuScreen(menuSelect):
    
     disp.image(image)
 
+#About screen
+def menuScreen():
+    #draw the backgorund of the main menu
+    padding = 2
+    
+    titleText = "About"      
+    
+    draw = ImageDraw.Draw(image)
+    draw.rectangle((0, 0, disp.height, disp.width), outline=0, fill=(255,255,255))
+    draw.rectangle((0, 0, disp.height-1, 36), outline=(255,255,255), fill=(100,100,100))
+
+    draw.text(((disp.height-font.getsize(titleText)[0])/2, 4), titleText , font=font, fill="#FFFFFF")
+
+    textArray = ["Henniker Scientific","HW Ver","SW Ver","Support"]
+    for i in range(0,5):
+        draw.text((2*padding, 4+(i+1)*36), textArray[i] , font=font, fill=0)
+
+    disp.image(image)
 
 #encoder changed
 def encoderChanged(value):
