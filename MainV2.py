@@ -98,7 +98,8 @@ def runTime():
                 selector = rangeMenu[state][0]
                 menuScreen(selector)
                 stateFlag = False
-                menuOut[3,4,5,6,7]
+                #list of the states for the menu selection
+                menuOut = [3,4,5,6,7]
 
             #check if the encoder has changed and update the menu
 
