@@ -121,12 +121,23 @@ def runTime():
                 
         #Materials menu 
         if state == 3:
+            print("Materials menu")
+            state = 2
+            
         #Connection menu
         if state == 4:
+            print("Connection menu")
+            state = 2
+            
         #Settings menu
         if state == 5:
+            print("Settings menu")
+            state = 2
+            
         #About menu
         if state == 6:
+            print("About menu")
+            state = 2
             
         #Return to the main menu
         if state == 7:
