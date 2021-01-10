@@ -182,7 +182,7 @@ def splashScreen(splashTimerCnt):
 
     if splashTimerCnt == 0:
         #image should be in the 320x240 px format
-        logo = Image.open("/ident/logo.png")
+        logo = Image.open(os.getcwd()+"/ident/logo.png")
     
         # Display image
         disp.image(logo)
