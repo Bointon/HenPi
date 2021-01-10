@@ -275,8 +275,6 @@ def aboutScreen():
     #Import the custom about screen text
     f = open(os.getcwd()+"/ident/about.txt","r")
     textArray = f.readlines()
-
-    print(textArray)
     
     #draw the backgorund of the about screen
     padding = 2
