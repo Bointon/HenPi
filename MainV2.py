@@ -71,7 +71,7 @@ def runTime():
     GPIO.add_event_detect(16, GPIO.FALLING, callback=clearButton, bouncetime=300)  
 
     #range for each menu
-    rangeMenu = [[0,0],[0,0],[1,4]]
+    rangeMenu = [[0,0],[0,0],[1,5]]
 
 
     while True:
@@ -172,12 +172,11 @@ def menuScreen(menuSelect):
 
     draw.text(((disp.height-font.getsize(titleText)[0])/2, 4), titleText , font=font, fill="#FFFFFF")
 
-    draw.text((2*padding, 4+36), "Materials" , font=font, fill=0)
-    draw.text((2*padding, 4+2*36), "Connection" , font=font, fill=0)
-    draw.text((2*padding, 4+3*36), "Settings" , font=font, fill=0)
-    draw.text((2*padding, 4+4*36), "About" , font=font, fill=0)
+    textArray = ["Materials","Connection","Settings","About","Exit Menu"]
+    for i in range(0,4):
+        draw.text((2*padding, 4+i*36), textArray[i] , font=font, fill=0)
 
-    
+   
     disp.image(image)
 
 
