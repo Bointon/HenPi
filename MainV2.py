@@ -182,7 +182,7 @@ def splashScreen(splashTimerCnt):
 
     if splashTimerCnt == 0:
         #image should be in the 320x240 px format
-        logo = Image.open("logo.png")
+        logo = Image.open("/ident/logo.png")
     
         # Display image
         disp.image(logo)
@@ -232,7 +232,12 @@ def menuScreen(menuSelect):
 
 #About screen
 def aboutScreen():
-    #draw the backgorund of the main menu
+    #Import the custom about screen text
+    f = open("/ident/about.txt","r")
+    textArray = f.readlines()
+        
+    
+    #draw the backgorund of the about screen
     padding = 2
     
     titleText = "About"      
@@ -243,7 +248,6 @@ def aboutScreen():
 
     draw.text(((disp.height-font.getsize(titleText)[0])/2, 4), titleText , font=font, fill="#FFFFFF")
 
-    textArray = ["Henniker Scientific","www.website.com","Pnoe #","HW Ver      SW Ver"]
     for i in range(0,4):
         draw.text((2*padding, 4+(i+1)*36), textArray[i] , font=font, fill=0)
 
