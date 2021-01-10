@@ -303,7 +303,7 @@ def settingsScreen(menuSelect):
     settings = []
     f = open(os.getcwd()+"/config/settings.txt","r")
     for line in f:
-        settings.append = int(line)
+        settings.append[int(line)]
     print(settings)
     
     draw = ImageDraw.Draw(image)
