@@ -298,7 +298,7 @@ def settingsScreen(menuSelect):
     
     titleText = "Settings"
     textArray = ["Measurement Rate:","Averaging:","Thickness Units:","Rate Units:","Exit Settings"]
-    textOptions = [[1,2,4],[1,2,5,10,20,50,100],["kA","nm","A"],["kA/s","nm/s","A/s"]]
+    textOptions = [['1','2','4'],['1','2','5','10','20','50','100'],["kA","nm","A"],["kA/s","nm/s","A/s"]]
 
     settings = []
     f = open(os.getcwd()+"/config/settings.txt","r")
