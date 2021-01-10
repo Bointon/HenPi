@@ -96,23 +96,22 @@ def runTime():
 
                 stateFlag = False
 
+            #check if the encoder has changed and update the menu
+
             if encoderValue>oldencoderValue:
                 selector  += 1
                 if selector >= rangeMenu[state][1]:
                     selector = rangeMenu[state][1]
                 oldencoderValue = encoderValue
+                menuScreen(selector)
             if encoderValue < oldencoderValue:
                 selector -= 1
                 if selector <= rangeMenu[state][0]:
                     selector = rangeMenu[state][0]
                 oldencoderValue = encoderValue
-
-            #display the menu   
-            if checkEncoder == True:
                 menuScreen(selector)
-            TimerCnt += 1
 
-            
+                        
            
         #check encoder if it has been changed
         if checkEncoder == True:
