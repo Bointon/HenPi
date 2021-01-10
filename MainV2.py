@@ -321,7 +321,7 @@ def settingsScreen(menuSelect):
 
     for i in range(0,5):
         draw.text((2*padding, 4+(i+1)*36), textArray[i] , font=font, fill=0)
-        if i < 5:
+        #if i < 5:
         #   print(settings[i])
         #    print(font.getsize(textOptions[i][settings[i]])[0])
         #    print(textOptions[i][settings[i]])
