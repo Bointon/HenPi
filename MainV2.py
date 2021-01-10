@@ -251,7 +251,7 @@ def aboutScreen():
     draw.text(((disp.height-font.getsize(titleText)[0])/2, 4), titleText , font=font, fill="#FFFFFF")
 
     for i in range(0,4):
-        draw.text((disp.height-font.getsize(textArray[i])[0])/2, 4+(i+1)*36), textArray[i] , font=font, fill=0)
+        draw.text(((disp.height-font.getsize(textArray[i])[0])/2, 4+(i+1)*36), textArray[i] , font=font, fill=0)
 
     disp.image(image)
 
