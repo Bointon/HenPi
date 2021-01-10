@@ -70,10 +70,10 @@ def runTime():
     GPIO.add_event_detect(4, GPIO.FALLING, callback=encoderButton, bouncetime=300)  
     GPIO.add_event_detect(16, GPIO.FALLING, callback=clearButton, bouncetime=300)  
 
-    #Encoder values for each state machine
-    menuRange = [[0,0],[0,0],[1,4]]
+    #range for each menu
+    rangeMenu = [[0,0],[0,0],[1,4]]
 
-    
+
     while True:
         #The splash screen 
         if state == 0:
@@ -92,25 +92,31 @@ def runTime():
             #The menu screen
             if stateFlag == True:
                 oldencoderValue = encoderValue
-                menuScreen(menuRange[state][0])
+                selector = rangeMenu[state][0]
+
                 stateFlag = False
 
-            selector = oldencoderValue-encoderValue
-            if selector < menuRange[state][0]:
+            if encoderValue>olderencoderValue:
+                selector  += 1
+                if selector >= rangeMenu[state][1]:
+                    selector = rangeMenu[state][1]
                 oldencoderValue = encoderValue
-                selector = menuRange[state][0]
-                menuScreen(selector)
-            elif selector > menuRange[state][1]:
-                oldencoderValue = encoderValue - menuRange[state][1]
-                print(encoderValue)
-                print(menuRange[state][1])
-                print(oldencoderValue)
-                selector = menuRange[state][1]
-                menuScreen(selector)
-            elif oldencoderValue != encoderValue:
-                menuScreen(selector)
+            if encoderValue < olderencoderValue:
+                selector -= 1
+                 if selector >= rangeMenu[state][0]:
+                    selector = rangeMenu[state][0]
+                oldencoderValue = encoderValue
+
+            #display the menu        
+            menuScreen(selector)
                 
-            print(selector)     
+                
+
+                #need to fix the encoder range functionality
+
+                
+                
+              
             TimerCnt += 1
            
         #check encoder if it has been changed
