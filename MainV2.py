@@ -221,7 +221,7 @@ def splashScreen(splashTimerCnt):
 
     if splashTimerCnt == 0:
         #image should be in the 320x240 px format
-        logo = Image.open(os.getcwd()+"/ident/logo.png")
+        logo = Image.open(os.getcwd()+"/config/logo.png")
     
         # Display image
         disp.image(logo)
@@ -272,9 +272,9 @@ def menuScreen(menuSelect):
 #About screen
 def aboutScreen():
     #Import the custom about screen text
-    f = open(os.getcwd()+"/ident/about.txt","r")
+    f = open(os.getcwd()+"/config/about.txt","r")
     textArray = f.readlines()
-    
+    f.close()
     #draw the backgorund of the about screen
     padding = 2
     
@@ -296,7 +296,12 @@ def settingsScreen(menuSelect):
     #draw the backgorund of the main menu
     padding = 2
     
-    titleText = "Settings"      
+    titleText = "Settings"
+    textArray = ["Measurement Rate:","Averaging:","Thickness Units:","Rate Units:","Exit Settings"]
+    textOptions = [[1,2,4],[1,2,5,10,20,50,100],["kA","nm","A"],["kA/s","nm/s","A/s"]]
+
+    f = open(os.getcwd()+"/config/settings.txt","r")
+    settings = f.readlines()
     
     draw = ImageDraw.Draw(image)
     draw.rectangle((0, 0, disp.height, disp.width), outline=0, fill=(255,255,255))
@@ -307,9 +312,10 @@ def settingsScreen(menuSelect):
 
     draw.text(((disp.height-font.getsize(titleText)[0])/2, 4), titleText , font=font, fill="#FFFFFF")
 
-    textArray = ["Measurement Rate:","Averaging:","Thickness Units:","Rate Units:","Exit Settings"]
+
     for i in range(0,5):
         draw.text((2*padding, 4+(i+1)*36), textArray[i] , font=font, fill=0)
+        draw.text((font.getsize(textOptions[i][settings[i]])[0])/2, 4+(i+1)*36), textOptions[i][settings[i]] , font=font, fill=0)
 
     disp.image(image)
 
