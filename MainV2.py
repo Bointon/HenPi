@@ -165,6 +165,9 @@ def runTime():
 
             #if the encoder button is pressed move to the next menu
             if encoderButtonPressed:
+                if selector = rangeMenu[state][1]:
+                    state = 2
+                                  
                 #state = menuOut[selector - 1]
                 encoderButtonPressed = False
                 stateFlag = True
