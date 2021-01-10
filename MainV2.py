@@ -319,7 +319,7 @@ def settingsScreen(menuSelect):
         draw.text((2*padding, 4+(i+1)*36), textArray[i] , font=font, fill=0)
         if i < 4:
             lineText = textOptions[i][settings[i]]
-            draw.text(((font.getsize(lineText)[0]), 4+(i+1)*36), lineText , font=font, fill=0)
+            draw.text(((disp.height-font.getsize(lineText)[0]), 4+(i+1)*36), lineText , font=font, fill=0)
 
             
 
