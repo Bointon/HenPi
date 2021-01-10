@@ -13,7 +13,8 @@ import time
 import subprocess
 import digitalio
 import board
-import RPi.GPIO as GPIO 
+import RPi.GPIO as GPIO
+import os
 from PIL import Image, ImageDraw, ImageFont
 import adafruit_rgb_display.ili9341 as ili9341
 from encoder import Encoder
