@@ -103,7 +103,7 @@ def runTime():
                 oldencoderValue = encoderValue
             if encoderValue < olderencoderValue:
                 selector -= 1
-                 if selector >= rangeMenu[state][0]:
+                if selector >= rangeMenu[state][0]:
                     selector = rangeMenu[state][0]
                 oldencoderValue = encoderValue
 
