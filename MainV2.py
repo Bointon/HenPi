@@ -300,8 +300,10 @@ def settingsScreen(menuSelect):
     textArray = ["Measurement Rate:","Averaging:","Thickness Units:","Rate Units:","Exit Settings"]
     textOptions = [[1,2,4],[1,2,5,10,20,50,100],["kA","nm","A"],["kA/s","nm/s","A/s"]]
 
+    settings = []
     f = open(os.getcwd()+"/config/settings.txt","r")
-    settings = f.readlines()
+    for line in f:
+        settings.append = int(line)
     print(settings)
     
     draw = ImageDraw.Draw(image)
@@ -316,10 +318,10 @@ def settingsScreen(menuSelect):
 
     for i in range(0,5):
         draw.text((2*padding, 4+(i+1)*36), textArray[i] , font=font, fill=0)
-        if i < 5:
-            print(font.getsize(textOptions[i][settings[i]])[0])
-            print(textOptions[i][settings[i]])
-            draw.text(((font.getsize(textOptions[i][settings[i]])[0]), 4+(i+1)*36), textOptions[i][settings[i]] , font=font, fill=0)
+        #if i < 5:
+        #    print(font.getsize(textOptions[i][settings[i]])[0])
+        #    print(textOptions[i][settings[i]])
+        #    draw.text(((font.getsize(textOptions[i][settings[i]])[0]), 4+(i+1)*36), textOptions[i][settings[i]] , font=font, fill=0)
 
     disp.image(image)
 
