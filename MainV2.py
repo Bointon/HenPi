@@ -115,7 +115,7 @@ def runTime():
                 oldencoderValue = encoderValue
                 menuScreen(selector)
 
-            if encoderButtonPressed
+            if encoderButtonPressed:
                 state = menuOut[selector - 1]
                 encoderButtonPressed = False
                 
