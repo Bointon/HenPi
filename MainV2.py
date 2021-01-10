@@ -147,7 +147,7 @@ def runTime():
         if state == 6:
             print("About menu")
             if stateFlag:
-                menuScreen()
+                aboutScreen()
                 
             if encoderButtonPressed:
                 state = 2
@@ -231,7 +231,7 @@ def menuScreen(menuSelect):
     disp.image(image)
 
 #About screen
-def menuScreen():
+def aboutScreen():
     #draw the backgorund of the main menu
     padding = 2
     
