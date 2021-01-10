@@ -76,7 +76,7 @@ def runTime():
     GPIO.add_event_detect(16, GPIO.FALLING, callback=clearButton, bouncetime=300)  
 
     #range for each menu
-    rangeMenu = [[0,0],[0,0],[1,5],[1,6]]
+    rangeMenu = [[0,0],[0,0],[1,5],[0,0],[0,0],[1,6]]
 
 
     while True:
