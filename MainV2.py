@@ -108,7 +108,7 @@ def runTime():
                 oldencoderValue = encoderValue
 
             #display the menu   
-            if (TimerCnt % 100) == 0:
+            if checkEncoder == True:
                 menuScreen(selector)
             TimerCnt += 1
 
