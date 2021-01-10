@@ -107,6 +107,8 @@ def runTime():
                     selector = rangeMenu[state][0]
                 oldencoderValue = encoderValue
 
+            print(selector)
+
             #display the menu        
             menuScreen(selector)
                 
