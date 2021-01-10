@@ -234,9 +234,10 @@ def menuScreen(menuSelect):
 #About screen
 def aboutScreen():
     #Import the custom about screen text
-    f = open("/ident/about.txt","r")
+    f = open(os.getcwd()+"/ident/about.txt","r")
     textArray = f.readlines()
-        
+
+    print(textArray)
     
     #draw the backgorund of the about screen
     padding = 2
