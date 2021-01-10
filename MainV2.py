@@ -304,8 +304,7 @@ def settingsScreen(menuSelect):
     f = open(os.getcwd()+"/config/settings.txt","r")
     for line in f:
         settings.append(int(line))
-        print(settings)
-    
+  
     
     draw = ImageDraw.Draw(image)
     draw.rectangle((0, 0, disp.height, disp.width), outline=0, fill=(255,255,255))
@@ -319,7 +318,8 @@ def settingsScreen(menuSelect):
 
     for i in range(0,5):
         draw.text((2*padding, 4+(i+1)*36), textArray[i] , font=font, fill=0)
-        #if i < 5:
+        if i < 5:
+            print(settings[i])
         #    print(font.getsize(textOptions[i][settings[i]])[0])
         #    print(textOptions[i][settings[i]])
         #    draw.text(((font.getsize(textOptions[i][settings[i]])[0]), 4+(i+1)*36), textOptions[i][settings[i]] , font=font, fill=0)
