@@ -48,6 +48,7 @@ image = Image.new("RGB", (disp.height, disp.width))
 state = 0
 stateFlag = False
 checkEncoder = False
+editFlag = False
 encoderValue = 0
 oldencoderValue = 0
 encoderButtonPressed = False
@@ -59,6 +60,7 @@ def runTime():
     #Standard runtime initialisation
     global state
     global stateFlag
+    global editFlag
     global encoderValue
     global oldencoderValue
     global TimerCnt
@@ -89,7 +91,7 @@ def runTime():
             
         #The main display
         if state == 1:
-            if stateFlag == True:
+            if stateFlag:
                 mainScreen()
                 stateFlag = False
                 
@@ -100,7 +102,7 @@ def runTime():
 
         if state == 2:
             #The menu screen
-            if stateFlag == True:
+            if stateFlag:
                 oldencoderValue = encoderValue
                 selector = rangeMenu[state][0]
                 menuScreen(selector)
@@ -142,32 +144,42 @@ def runTime():
         #Settings menu
         if state == 5:
             #The menu screen
-            if stateFlag == True:
+            if stateFlag:
                 oldencoderValue = encoderValue
                 selector = rangeMenu[state][0]
                 settingsScreen(selector)
                 stateFlag = False
-                #list of the states for the menu selection
-            #check if the encoder has changed and update the menu
 
-            if encoderValue>oldencoderValue:
-                selector  += 1
-                if selector >= rangeMenu[state][1]:
-                    selector = rangeMenu[state][1]
-                oldencoderValue = encoderValue
-                settingsScreen(selector)
-            if encoderValue < oldencoderValue:
-                selector -= 1
-                if selector <= rangeMenu[state][0]:
-                    selector = rangeMenu[state][0]
-                oldencoderValue = encoderValue
-                settingsScreen(selector)
+            #check if the menu is in value edit mode
+            if editFlag:
+
+            else:
+                #check if the encoder has changed and update the menu
+
+                if encoderValue>oldencoderValue:
+                    selector  += 1
+                    if selector >= rangeMenu[state][1]:
+                        selector = rangeMenu[state][1]
+                   oldencoderValue = encoderValue
+                    settingsScreen(selector)
+                if encoderValue < oldencoderValue:
+                    selector -= 1
+                    if selector <= rangeMenu[state][0]:
+                        selector = rangeMenu[state][0]
+                    oldencoderValue = encoderValue
+                    settingsScreen(selector)
 
             #if the encoder button is pressed move to the next menu
             if encoderButtonPressed:
+                
+                if editFlag:
+                    editFlag = False
+                
+                #Exit to menu
                 if selector == rangeMenu[state][1]:
                     state = 2
-                                  
+                else:
+                    editFlag = True
                 #state = menuOut[selector - 1]
                 encoderButtonPressed = False
                 stateFlag = True
@@ -194,7 +206,7 @@ def runTime():
                         
            
         #check encoder if it has been changed
-        if checkEncoder == True:
+        if checkEncoder:
             encoderValue = e1.value
             checkEncoder = False
 
