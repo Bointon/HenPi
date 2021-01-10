@@ -302,6 +302,7 @@ def settingsScreen(menuSelect):
 
     f = open(os.getcwd()+"/config/settings.txt","r")
     settings = f.readlines()
+    print(settings)
     
     draw = ImageDraw.Draw(image)
     draw.rectangle((0, 0, disp.height, disp.width), outline=0, fill=(255,255,255))
