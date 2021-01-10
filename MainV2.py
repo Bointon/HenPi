@@ -96,7 +96,7 @@ def runTime():
 
                 stateFlag = False
 
-            if encoderValue>olderencoderValue:
+            if encoderValue>oldencoderValue:
                 selector  += 1
                 if selector >= rangeMenu[state][1]:
                     selector = rangeMenu[state][1]
