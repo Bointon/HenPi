@@ -146,7 +146,7 @@ def runTime():
         #The About menu
         if state == 6:
             print("About menu")
-            if stateFlag = True:
+            if stateFlag:
                 menuScreen()
                 
             if encoderButtonPressed:
