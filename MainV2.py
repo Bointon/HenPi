@@ -45,7 +45,7 @@ image = Image.new("RGB", (disp.height, disp.width))
     
 #flags
 state = 0
-stagFlag = False
+stateFlag = False
 checkEncoder = False
 encoderValue = 0
 oldencoderValue = 0
@@ -63,7 +63,7 @@ def runTime():
     global TimerCnt
     global checkEncoder
     global encoderButtonPressed
-    stateFlag = False
+
     splashTimer = 500
     TimerCnt = 0
 
